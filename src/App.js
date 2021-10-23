@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "../node_modules/react-toastify/dist/ReactToastify.css";
 import PhonebookForm from "./Components/PhonebookForm/PhonebookForm";
 import ContactList from "./Components/ContactsList/ContactsList";
 import Filter from "./Components/Filter/Filter";
@@ -31,7 +33,7 @@ export default function App() {
   const addNewContact = (contact) => {
     const normalizedContact = contact.name.toLowerCase();
     if (contacts.some((el) => el.name.toLowerCase() === normalizedContact)) {
-      alert(`${contact.name} is already in contact list`);
+      toast.error(`${contact.name} is already in contact list`);
       return;
     }
     setContacts((prevState) => [...prevState, { ...contact, id: uuidv4() }]);
@@ -57,6 +59,7 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
+      <ToastContainer />
       <PhonebookForm list={contacts} addNewContact={addNewContact} />
       <h2>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
