@@ -1,0 +1,20 @@
+.item {
+  padding-bottom: 7px;
+  font-size: 16px;
+}
+
+.name {
+  margin-right: 10px;
+  font-style: italic;
+}
+
+.tel {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.button {
+  background-color: rgb(185, 185, 194);
+  font-weight: 700;
+  border-radius: 4px;
+}
